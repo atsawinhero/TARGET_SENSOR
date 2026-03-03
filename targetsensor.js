@@ -1,4 +1,4 @@
-elements.target_sensor = {
+elements.sensor_target = {
     color: "#ff8800",
     behavior: behaviors.WALL,
     category: "machines",
