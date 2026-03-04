@@ -1,7 +1,0 @@
-alert("MOD WORKING");
-
-elements.test_block = {
-    color: "#00ff00",
-    category: "machines",
-    behavior: behaviors.WALL
-};
