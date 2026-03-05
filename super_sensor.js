@@ -1,4 +1,4 @@
-{elements.testing_element = {
+elements.testing_element = {
     color: "#49a8ab",
     behavior: behavior,WALL,
     category: "testing",
@@ -8,4 +8,5 @@
     templow:0,
     statelow:"ice"
 }
+
 
