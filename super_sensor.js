@@ -1,6 +1,6 @@
 elements.super_sensor = {
     color: "#ff8800",
-    category: "machines",
+    category: "new machines",
     behavior: behaviors.WALL,
     state: "solid",
     density: 9999,
@@ -51,4 +51,5 @@ elements.super_sensor = {
         }
     }
 };
+
 
