@@ -1,4 +1,3 @@
-
 elements.super_sensor = {
     color: "#ff8800",
     category: "machines",
@@ -52,3 +51,4 @@ elements.super_sensor = {
         }
     }
 };
+
