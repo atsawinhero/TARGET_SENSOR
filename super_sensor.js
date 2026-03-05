@@ -1,4 +1,4 @@
-elements.super_sensor = {elements.testing_element = {
+{elements.testing_element = {
     color: "#49a8ab",
     behavior: behavior,WALL,
     category: "testing",
@@ -8,3 +8,4 @@ elements.super_sensor = {elements.testing_element = {
     templow:0,
     statelow:"ice"
 }
+
