@@ -8,23 +8,26 @@ elements.super_sensor = {
 
     properties: {
         target: "water",
-        range: 3
-    },
-
-    onSelect: function() {
-        var input = prompt("ใส่ element ที่จะตรวจจับ (เช่น water,sand,fire):", elements.super_sensor.properties.target);
-        if (input !== null) {
-            elements.super_sensor.properties.target = input;
-        }
+        range: 3,
+        asked: false
     },
 
     tick: function(pixel) {
-        var targets = elements.super_sensor.properties.target.split(",");
-        var range = elements.super_sensor.properties.range;
+
+        // ถ้ายังไม่ตั้ง target ให้ถามครั้งแรก
+        if (!pixel.asked) {
+            var input = prompt("ใส่ element ที่จะตรวจจับ (เช่น water,sand,fire):", pixel.target);
+            if (input !== null) {
+                pixel.target = input;
+            }
+            pixel.asked = true;
+        }
+
+        var targets = pixel.target.split(",");
         var found = false;
 
-        for (var dx = -range; dx <= range; dx++) {
-            for (var dy = -range; dy <= range; dy++) {
+        for (var dx = -pixel.range; dx <= pixel.range; dx++) {
+            for (var dy = -pixel.range; dy <= pixel.range; dy++) {
 
                 if (dx === 0 && dy === 0) continue;
 
@@ -35,7 +38,6 @@ elements.super_sensor = {
                     var p = pixelMap[x][y];
                     if (p && targets.includes(p.element)) {
                         found = true;
-                        break;
                     }
                 }
             }
@@ -44,11 +46,10 @@ elements.super_sensor = {
         if (found) {
             pixel.color = "#00ff00";
             pixel.charge = 1;
+            pixel.chargeCD = 0; // ส่งไฟออก
         } else {
             pixel.color = "#ff8800";
             pixel.charge = 0;
         }
     }
 };
-
-
