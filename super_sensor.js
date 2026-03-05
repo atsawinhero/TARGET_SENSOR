@@ -11,9 +11,8 @@ elements.super_sensor = {
 
     tick: function(pixel) {
 
-        // ถ้ายังไม่ได้ตั้งค่า target
         if (!pixel.target) {
-            var input = prompt("ใส่ element ที่จะตรวจจับ เช่น water,sand,fire");
+            var input = prompt("water,sand,fire");
             if (input) {
                 pixel.target = input.split(",");
             } else {
