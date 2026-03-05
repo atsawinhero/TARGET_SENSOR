@@ -1,51 +1,10 @@
-elements.super_sensor = {
-    color: "#ff8800",
-    category: "machines",
-    behavior: behaviors.WALL,
-    conduct: 1,
-
-    properties: {
-        target: null,
-        range: 3
-    },
-
-    tick: function(pixel) {
-
-        if (!pixel.target) {
-            var input = prompt("water,sand,fire");
-            if (input) {
-                pixel.target = input.split(",");
-            } else {
-                pixel.target = ["water"];
-            }
-        }
-
-        var found = false;
-
-        for (var dx = -pixel.range; dx <= pixel.range; dx++) {
-            for (var dy = -pixel.range; dy <= pixel.range; dy++) {
-
-                if (dx === 0 && dy === 0) continue;
-
-                var x = pixel.x + dx;
-                var y = pixel.y + dy;
-
-                if (!isEmpty(x,y,true)) {
-                    var p = pixelMap[x][y];
-                    if (p && pixel.target.includes(p.element)) {
-                        found = true;
-                    }
-                }
-            }
-        }
-
-        if (found) {
-            pixel.color = "#00ff00";
-            pixel.charge = 1;
-            pixel.chargeCD = 0;
-        } else {
-            pixel.color = "#ff8800";
-            pixel.charge = 0;
-        }
-    }
-};
+elements.super_sensor = {elements.testing_element = {
+    color: "#49a8ab",
+    behavior: behavior,WALL,
+    category: "testing",
+    state: "solid",
+    stateHigh: "carbon_dioxide",
+    tempHigh: 100,
+    templow:0,
+    statelow:"ice"
+}
